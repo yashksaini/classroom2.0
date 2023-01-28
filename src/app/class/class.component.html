@@ -1,0 +1,34 @@
+<div class="card">
+  <div class="head">
+    <h1>
+      {{ class.subject.substring(0, 20)
+      }}<span *ngIf="class.subject.length > 19">...</span>
+    </h1>
+    <span *ngIf="class.type == 'teacher'" class="create">Created</span>
+    <span
+      *ngIf="class.type == 'student' && class.status == 'allow'"
+      class="join"
+      >Joined</span
+    >
+    <span
+      *ngIf="class.type == 'student' && class.status == 'restrict'"
+      class="request"
+      >Pending</span
+    >
+  </div>
+  <p class="subject">
+    {{ class.name.substring(0, 30)
+    }}<span *ngIf="class.name.length > 29">...</span>
+  </p>
+  <div class="footer">
+    <p>{{ class.code }}</p>
+    <a
+      routerLink="/room/{{ class.code }}/people"
+      *ngIf="class.status == 'allow'"
+      >View Classroom</a
+    >
+    <button *ngIf="class.status == 'restrict'" (click)="delete(class.id)">
+      Remove
+    </button>
+  </div>
+</div>

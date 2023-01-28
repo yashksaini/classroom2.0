@@ -1,0 +1,58 @@
+<app-room></app-room>
+<div class="container" *ngIf="validUser">
+  <div class="contentBox">
+    <div class="roomNav">
+      <app-roomnav></app-roomnav>
+    </div>
+    <div class="content">
+      <div class="data">
+        <div class="dataHead">
+          <h1>
+            Contents <b>{{ allContent.length }}</b>
+          </h1>
+          <span class="material-symbols-outlined tick"> folder_copy </span>
+        </div>
+        <p>All added content in this class appears below</p>
+      </div>
+      <form
+        class="form"
+        [formGroup]="myForm"
+        (ngSubmit)="onSubmit(myForm)"
+        *ngIf="classDetail.type === 'teacher'"
+      >
+        <div class="inputBox">
+          <input type="text" [formControl]="myForm.controls['title']" />
+          <span>Content Title *</span>
+        </div>
+        <div class="inputBox">
+          <input type="text" [formControl]="myForm.controls['link']" />
+          <span>Link *</span>
+        </div>
+        <button [disabled]="!myForm.valid">Add Content</button>
+      </form>
+
+      <div class="data" *ngFor="let content of allContent">
+        <div class="dataHead">
+          <h1>{{ content.title }}</h1>
+          <span
+            class="material-symbols-outlined"
+            *ngIf="classDetail.type === 'teacher'"
+            (click)="deleteContent(content.id)"
+          >
+            delete
+          </span>
+          <span
+            class="material-symbols-outlined tick"
+            *ngIf="classDetail.type === 'student'"
+          >
+            check_circle
+          </span>
+        </div>
+        <a href="{{ content.link }}" target="_blank">{{ content.link }}</a>
+        <small>{{
+          content.addedOn.toDate() | date : "MMM dd, yyyy h:mm a"
+        }}</small>
+      </div>
+    </div>
+  </div>
+</div>

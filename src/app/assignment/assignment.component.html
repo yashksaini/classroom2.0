@@ -1,0 +1,66 @@
+<app-room></app-room>
+<div class="container" *ngIf="validUser">
+  <div class="contentBox">
+    <div class="roomNav">
+      <app-roomnav></app-roomnav>
+    </div>
+    <div class="content">
+      <div class="data">
+        <div class="dataHead">
+          <h1>
+            Assignments <b>{{ allAssignments.length }}</b>
+          </h1>
+          <span class="material-symbols-outlined tick"> assignment </span>
+        </div>
+        <p>All assignments of this class appears below</p>
+      </div>
+      <form
+        class="form"
+        [formGroup]="myForm"
+        (ngSubmit)="onSubmit(myForm)"
+        *ngIf="classDetail.type === 'teacher'"
+      >
+        <div class="inputBox">
+          <input type="text" [formControl]="myForm.controls['title']" />
+          <span>Title *</span>
+        </div>
+        <div class="inputBox">
+          <input
+            type="date"
+            [formControl]="myForm.controls['date']"
+            min="{{ date }}"
+          />
+          <span>Due Date *</span>
+        </div>
+        <div class="inputBox1">
+          <textarea [formControl]="myForm.controls['desc']" rows="3">
+          </textarea>
+          <span>Description *</span>
+        </div>
+        <button [disabled]="!myForm.valid">Create</button>
+      </form>
+
+      <div class="data" *ngFor="let assignment of allAssignments">
+        <div class="dataHead">
+          <h1>{{ assignment.title }}</h1>
+          <span
+            class="material-symbols-outlined tick"
+            routerLink="/room/{{ classId }}/view/{{ assignment.id }}"
+          >
+            open_in_new
+          </span>
+        </div>
+        <h5>
+          {{ assignment.desc }}
+        </h5>
+        <h6>
+          <strong>Due Date:</strong>
+          {{ assignment.dueDate.split("-").reverse().join("-") }}
+        </h6>
+        <small>{{
+          assignment.addedOn.toDate() | date : "MMM dd, yyyy h:mm a"
+        }}</small>
+      </div>
+    </div>
+  </div>
+</div>

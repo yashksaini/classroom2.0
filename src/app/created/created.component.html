@@ -1,0 +1,10 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="infoBox">
+    <h1>Total Created - {{ allClasses.length }}</h1>
+    <p>All created classes appear below.</p>
+  </div>
+  <div class="allClasses">
+    <app-class *ngFor="let class of allClasses" [class]="class"></app-class>
+  </div>
+</div>

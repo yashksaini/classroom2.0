@@ -1,0 +1,33 @@
+<app-room></app-room>
+<div class="container" *ngIf="validUser">
+  <div class="contentBox">
+    <div class="roomNav">
+      <app-roomnav></app-roomnav>
+    </div>
+    <div class="content">
+      <div class="data">
+        <div class="dataHead">
+          <h1>
+            Requests <b>{{ allStudents.length }}</b>
+          </h1>
+          <span class="material-symbols-outlined"> all_inbox </span>
+        </div>
+        <p>All requests for the class appear below</p>
+      </div>
+      <div *ngFor="let student of allStudents" class="card">
+        <div class="cardContent">
+          <h1>{{ student.username }}</h1>
+          <p>{{ student.email }}</p>
+        </div>
+        <div class="remove">
+          <span
+            class="material-symbols-outlined tick"
+            (click)="addStudent(student.id)"
+          >
+            person_add
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

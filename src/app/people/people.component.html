@@ -1,0 +1,37 @@
+<app-room></app-room>
+<div class="container" *ngIf="validUser">
+  <div class="contentBox">
+    <div class="roomNav">
+      <app-roomnav></app-roomnav>
+    </div>
+    <div class="content">
+      <div class="data">
+        <div class="dataHead">
+          <h1>
+            People <b>{{ allStudents.length }}</b>
+          </h1>
+          <span class="material-symbols-outlined"> group </span>
+        </div>
+        <p>All people in the class appear below</p>
+      </div>
+      <div *ngFor="let student of allStudents" class="card">
+        <div class="cardContent">
+          <h1>{{ student.username }}</h1>
+          <p>{{ student.email }}</p>
+        </div>
+        <div class="remove">
+          <span
+            class="material-symbols-outlined"
+            *ngIf="IsTeacher"
+            (click)="removeStudent(student.id)"
+          >
+            person_remove
+          </span>
+          <span class="material-symbols-outlined tick" *ngIf="!IsTeacher">
+            check_circle
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

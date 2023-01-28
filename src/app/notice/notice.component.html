@@ -1,0 +1,55 @@
+<app-room></app-room>
+<div class="container" *ngIf="validUser">
+  <div class="contentBox">
+    <div class="roomNav">
+      <app-roomnav></app-roomnav>
+    </div>
+    <div class="content">
+      <div class="data">
+        <div class="dataHead">
+          <h1>
+            Notices <b>{{ allNotices.length }}</b>
+          </h1>
+          <span class="material-symbols-outlined tick"> forum </span>
+        </div>
+        <p>All notices in this class appears below</p>
+      </div>
+      <form
+        class="form"
+        [formGroup]="myForm"
+        (ngSubmit)="onSubmit(myForm)"
+        *ngIf="classDetail.type === 'teacher'"
+      >
+        <div class="inputBox">
+          <input type="text" [formControl]="myForm.controls['message']" />
+          <span>Message *</span>
+        </div>
+        <button [disabled]="!myForm.valid">Send</button>
+      </form>
+
+      <div class="data" *ngFor="let notice of allNotices">
+        <div class="dataHead">
+          <h1>
+            <small>{{
+              notice.addedOn.toDate() | date : "MMM dd, yyyy h:mm a"
+            }}</small>
+          </h1>
+          <span
+            class="material-symbols-outlined"
+            *ngIf="classDetail.type === 'teacher'"
+            (click)="deleteContent(notice.id)"
+          >
+            delete
+          </span>
+          <span
+            class="material-symbols-outlined tick"
+            *ngIf="classDetail.type === 'student'"
+          >
+            check_circle
+          </span>
+        </div>
+        <p>{{ notice.message }}</p>
+      </div>
+    </div>
+  </div>
+</div>

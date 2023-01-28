@@ -1,0 +1,41 @@
+<app-navbar></app-navbar>
+<div class="createContainer">
+  <div class="box">
+    <h2>Join Class</h2>
+    <form [formGroup]="myForm" class="form" (ngSubmit)="onSubmit(myForm)">
+      <label>Class Code <b>*</b></label>
+      <input
+        type="text"
+        placeholder="Class Code"
+        [formControl]="myForm.controls['code']"
+      />
+      <label>Teacher Name <b>*</b></label>
+      <input
+        type="text"
+        placeholder="Teacher Name (Add name to identify class)"
+        [formControl]="myForm.controls['name']"
+      />
+      <label>Subject <b>*</b></label>
+      <input
+        type="text"
+        placeholder="Subject (Science, History, etc.)"
+        [formControl]="myForm.controls['subject']"
+      />
+      <button [disabled]="!myForm.valid">Join</button>
+    </form>
+    <div class="message">
+      <p *ngIf="errorMsg.length > 0" class="error">
+        {{ errorMsg }}
+      </p>
+      <p *ngIf="message.length > 0" class="success">
+        {{ message }}
+      </p>
+    </div>
+    <div class="formFooter">
+      <div class="line"></div>
+      <div class="content">
+        Create class ? <a routerLink="/create">Create</a>
+      </div>
+    </div>
+  </div>
+</div>

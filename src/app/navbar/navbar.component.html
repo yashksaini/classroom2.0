@@ -1,0 +1,62 @@
+<nav class="navbar">
+  <div class="logo">
+    <img src="assets/logo.png" />
+    <h1>Classroom</h1>
+  </div>
+  <div class="navs" [ngClass]="{ activeNavs: toggle === true }">
+    <div class="special">
+      <div class="menu" (click)="toggleNav()">
+        <span class="material-symbols-outlined"> close </span>
+      </div>
+    </div>
+    <button
+      routerLinkActive="active"
+      routerLink="/h"
+      class="navLink"
+      (click)="toggleNav()"
+    >
+      All
+    </button>
+    <button
+      routerLinkActive="active"
+      routerLink="/created"
+      class="navLink"
+      (click)="toggleNav()"
+    >
+      Created
+    </button>
+    <button
+      routerLinkActive="active"
+      routerLink="/joined"
+      class="navLink"
+      (click)="toggleNav()"
+    >
+      Joined
+    </button>
+    <button
+      routerLinkActive="active"
+      routerLink="/request"
+      class="navLink"
+      (click)="toggleNav()"
+    >
+      Requested
+    </button>
+  </div>
+  <div class="profile">
+    <button class="addBtn" (click)="createJoin()">+</button>
+    <div class="userImg" (click)="toggleProfile()">
+      <img src="assets/user.png" />
+    </div>
+    <div class="menu" (click)="toggleNav()">
+      <span class="material-symbols-outlined"> menu </span>
+    </div>
+  </div>
+  <div class="addBar" [ngClass]="{ hide: addBar === false }">
+    <div routerLink="/create" (click)="createJoin()">Create class</div>
+    <div routerLink="/join" (click)="createJoin()">Join class</div>
+  </div>
+  <div class="profileBar" [ngClass]="{ hide: profileBar === false }">
+    <div><img src="assets/user.png" /> {{ user.displayName }}</div>
+    <div (click)="logOutUser()">Log Out</div>
+  </div>
+</nav>

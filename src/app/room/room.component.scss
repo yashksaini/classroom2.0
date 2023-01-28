@@ -1,0 +1,58 @@
+$black: #081c29;
+$grey: #8a8a8a;
+$line: #e2e2e2;
+$white: #fff;
+
+.container {
+  width: 788px;
+  padding: 20px;
+  margin: auto;
+}
+.infoBox {
+  width: 100%;
+  min-height: 100px;
+  padding: 10px 20px 20px 20px;
+  background: url("../../assets/background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid $line;
+  border-radius: 10px;
+  h1 {
+    font-size: 24px;
+    line-height: 36px;
+    font-weight: 400;
+    color: $white;
+  }
+  p {
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 300;
+    color: $white;
+  }
+}
+.contentBox {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+.roomNav {
+  width: 200px;
+  padding: 20px;
+  background-color: $white;
+  border: $line;
+  border-radius: 10px;
+}
+.content {
+  width: 528px;
+}
+@media only screen and (max-width: 800px) {
+  .allClasses {
+    display: block;
+  }
+  .container {
+    width: 100%;
+    padding: 10px;
+  }
+}

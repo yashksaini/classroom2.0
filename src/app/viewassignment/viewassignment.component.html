@@ -1,0 +1,88 @@
+<app-room *ngIf="allAssignments.length > 0"></app-room>
+<div class="container" *ngIf="validUser">
+  <div class="data" *ngIf="allAssignments.length > 0">
+    <div class="dataHead">
+      <h1>{{ assignmentDetail.title }}</h1>
+      <span class="material-symbols-outlined tick"> assignment </span>
+    </div>
+    <h5>
+      {{ assignmentDetail.desc }}
+    </h5>
+    <h6>
+      <strong>Due Date:</strong>
+      {{ assignmentDetail.dueDate.split("-").reverse().join("-") }}
+    </h6>
+    <small>{{
+      assignmentDetail.addedOn.toDate() | date : "MMM dd, yyyy h:mm a"
+    }}</small>
+  </div>
+
+  <form
+    class="form"
+    [formGroup]="myForm"
+    (ngSubmit)="onSubmit(myForm)"
+    *ngIf="classDetail.type === 'student' && allSubmitDetails.length == 0"
+  >
+    <div class="inputBox">
+      <input type="text" [formControl]="myForm.controls['link']" />
+      <span>Assignment Link *</span>
+    </div>
+    <div class="inputBox1">
+      <textarea [formControl]="myForm.controls['desc']" rows="3"> </textarea>
+      <span>Description *</span>
+    </div>
+    <button [disabled]="!myForm.valid">Submit</button>
+  </form>
+
+  <div class="data" *ngIf="allSubmitDetails.length > 0">
+    <div class="dataHead">
+      <h1 class="tick">Submitted</h1>
+      <span
+        class="material-symbols-outlined"
+        (click)="removeAssignment(submitDetail.id)"
+      >
+        delete
+      </span>
+    </div>
+    <h5>
+      {{ submitDetail.desc }}
+    </h5>
+    <a href="{{ submitDetail.link }}" target="_blank">
+      {{ submitDetail.link }}
+    </a>
+    <small>{{
+      submitDetail.addedOn.toDate() | date : "MMM dd, yyyy h:mm a"
+    }}</small>
+  </div>
+  <!-- For Student End -->
+
+  <!-- For Teacher Start -->
+  <div *ngIf="classDetail.type === 'teacher'">
+    <div class="data">
+      <div class="dataHead">
+        <h1>
+          Total Submits <b>{{ allSubmits.length }}</b>
+        </h1>
+        <span class="material-symbols-outlined tick"> assignment </span>
+      </div>
+      <p>All submitted assignments appear below.</p>
+    </div>
+    <div class="data" *ngFor="let submit of allSubmits">
+      <div class="dataHead">
+        <h1>
+          {{ submit.name }}
+        </h1>
+        <span class="material-symbols-outlined tick"> task_alt </span>
+      </div>
+      <h5>
+        {{ submit.desc }}
+      </h5>
+      <a href="{{ submit.link }}" target="_blank">
+        {{ submit.link }}
+      </a>
+      <small>{{ submit.addedOn.toDate() | date : "MMM dd, yyyy h:mm a" }}</small
+      ><small>{{ submit.email }}</small>
+    </div>
+  </div>
+  <!-- For Teacher End -->
+</div>

@@ -1,0 +1,14 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="infoBox">
+    <h1>Total Requests - {{ allClasses.length }}</h1>
+    <p>All requested classes appear below.</p>
+  </div>
+  <div class="allClasses">
+    <app-class
+      *ngFor="let class of allClasses"
+      [class]="class"
+      (onDelete)="onDelete()"
+    ></app-class>
+  </div>
+</div>

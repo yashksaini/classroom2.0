@@ -1,0 +1,36 @@
+<div class="container">
+  <img src="assets/logo.png" class="logo" />
+  <div class="box">
+    <h1>Classroom</h1>
+    <p>Enhance learning experiences</p>
+    <form class="form" [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+      <label>Email <b>*</b></label>
+      <input
+        type="email"
+        placeholder="example@email.com"
+        [formControl]="myForm.controls['email']"
+      />
+      <label>Password <b>*</b></label>
+      <input
+        type="password"
+        placeholder="Password"
+        [formControl]="myForm.controls['password']"
+      />
+      <button [disabled]="!myForm.valid">Login</button>
+    </form>
+    <div class="message">
+      <p *ngIf="errorMsg.length > 0" class="error">
+        {{ errorMsg }}
+      </p>
+      <p *ngIf="message.length > 0" class="success">
+        {{ message }}
+      </p>
+    </div>
+    <div class="formFooter">
+      <div class="line"></div>
+      <div class="content">
+        No account ? <a routerLink="/signup">Sign Up</a>
+      </div>
+    </div>
+  </div>
+</div>

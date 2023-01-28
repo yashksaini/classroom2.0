@@ -1,0 +1,146 @@
+$primary: #1992e6;
+$black: #081c29;
+$lightBlue: #cdebff;
+$darkBlue: #0066ac;
+$grey: #8a8a8a;
+$line: #e2e2e2;
+$background: #f0f2f5;
+$white: #fff;
+$red: #aa0e68;
+$green: #0eaa50;
+$hover: #fafafa;
+
+.container {
+  width: 788px;
+  padding: 0 20px;
+  margin: auto;
+}
+
+.contentBox {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 0px;
+}
+.roomNav {
+  width: 200px;
+  padding: 20px 0;
+  background-color: $white;
+  border: 1px solid $line;
+  border-radius: 10px;
+}
+.content {
+  width: 528px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.data {
+  width: 100%;
+  padding: 16px;
+  background-color: $white;
+  border: 1px solid $line;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  p {
+    font-size: 12px;
+    color: $grey;
+    text-decoration: none;
+    margin-top: 10px;
+  }
+}
+.dataHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  h1 {
+    line-height: 24px;
+    font-size: 18px;
+    font-weight: 500;
+    color: $black;
+    b {
+      margin-left: 6px;
+      color: $primary;
+    }
+  }
+  span {
+    width: 24px;
+    height: 24px;
+    font-size: 24px;
+    font-weight: 200;
+    color: $green;
+    &:hover {
+      cursor: pointer;
+      font-weight: 500;
+    }
+  }
+}
+
+.card {
+  width: 254px;
+  height: 64px;
+  border-radius: 10px;
+  border: 1px solid $line;
+  padding: 10px 10px 10px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $white;
+}
+.cardContent {
+  height: 44px;
+  width: calc(100% - 44px);
+  overflow: hidden;
+  h1 {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    color: $black;
+  }
+  p {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
+    color: $grey;
+  }
+}
+.remove {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  span {
+    font-weight: 300;
+    color: $red;
+    &:hover {
+      cursor: pointer;
+      font-weight: 500;
+    }
+  }
+  .tick {
+    color: $green;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .container {
+    width: 100%;
+    padding: 0 10px;
+  }
+  .contentBox {
+    flex-direction: column;
+  }
+  .roomNav {
+    width: 100%;
+    padding: 10px 0;
+  }
+  .content {
+    width: 100%;
+    margin-top: 10px;
+  }
+  .card {
+    width: 100%;
+    margin-bottom: 6px;
+  }
+}

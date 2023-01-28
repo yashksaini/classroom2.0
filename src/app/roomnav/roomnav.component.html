@@ -1,0 +1,48 @@
+<div class="navBar">
+  <div
+    class="navLink"
+    routerLinkActive="active"
+    routerLink="/room/{{ classId }}/people"
+  >
+    <p>People</p>
+    <span class="material-symbols-outlined"> group </span>
+    <small>{{ countPeople }}</small>
+  </div>
+  <div
+    routerLinkActive="active"
+    class="navLink"
+    routerLink="/room/{{ classId }}/content"
+  >
+    <p>Content</p>
+    <span class="material-symbols-outlined"> folder_copy </span>
+    <small>{{ countContent }}</small>
+  </div>
+  <div
+    routerLinkActive="active"
+    class="navLink"
+    routerLink="/room/{{ classId }}/assignments"
+  >
+    <p>Assignments</p>
+    <span class="material-symbols-outlined"> assignment </span>
+    <small>{{ countAssignment }}</small>
+  </div>
+  <div
+    routerLinkActive="active"
+    class="navLink"
+    routerLink="/room/{{ classId }}/notices"
+  >
+    <p>Notices</p>
+    <span class="material-symbols-outlined"> forum </span>
+    <small>{{ countNotice }}</small>
+  </div>
+  <div
+    routerLinkActive="active"
+    *ngIf="isTeacher"
+    class="navLink"
+    routerLink="/room/{{ classId }}/requests"
+  >
+    <p>Requests</p>
+    <span class="material-symbols-outlined"> all_inbox </span>
+    <small>{{ countRequest }}</small>
+  </div>
+</div>

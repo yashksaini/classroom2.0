@@ -1,0 +1,15 @@
+<app-navbar></app-navbar>
+<div class="container" *ngIf="validUser">
+  <div class="infoBox">
+    <h1>{{ classDetail.subject }}</h1>
+    <p>{{ classDetail.name }}</p>
+  </div>
+</div>
+
+<!-- If the user does not belong to this class -->
+<div class="container" *ngIf="!validUser">
+  <div class="infoBox">
+    <h1>Invalid class</h1>
+    <p>You are not the user of this class</p>
+  </div>
+</div>

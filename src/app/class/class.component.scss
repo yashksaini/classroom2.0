@@ -1,0 +1,93 @@
+$primary: #1992e6;
+$black: #081c29;
+$lightBlue: #cdebff;
+$darkBlue: #0066ac;
+$grey: #8a8a8a;
+$line: #e2e2e2;
+$background: #f0f2f5;
+$white: #fff;
+$red: #aa0e68;
+$green: #0eaa50;
+$hover: #fafafa;
+
+.card {
+  width: 364px;
+  max-width: 100%;
+  min-height: 130px;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: $white;
+  border-radius: 12px;
+  border: 1px solid $line;
+}
+.head {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    width: calc(100% - 80px);
+    line-height: 30px;
+    text-align: left;
+    overflow: hidden;
+    font-weight: 500;
+    font-size: 20px;
+    color: $black;
+  }
+  span {
+    width: 80px;
+    line-height: 30px;
+    text-align: right;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .create {
+    color: $green;
+  }
+  .join {
+    color: $red;
+  }
+  .request {
+    color: $grey;
+  }
+}
+.subject {
+  font-size: 16px;
+  line-height: 21px;
+  font-weight: 300;
+  color: $grey;
+  margin-top: 10px;
+}
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  p {
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 500;
+    color: $grey;
+  }
+  a {
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 21px;
+    color: $darkBlue;
+  }
+  button {
+    background-color: none;
+    font-size: 14px;
+    color: $red;
+    line-height: 21px;
+    background: none;
+    border: none;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+@media only screen and (max-width: 800px) {
+  .card {
+    width: 100%;
+  }
+}
