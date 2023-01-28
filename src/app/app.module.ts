@@ -27,13 +27,6 @@ import { NoticeComponent } from './notice/notice.component';
 import { ViewassignmentComponent } from './viewassignment/viewassignment.component';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDKH7Yrpww6ZreppkVLfmUl2Iy1pD0yEUE",
-  authDomain: "classroom-yks.firebaseapp.com",
-  projectId: "classroom-yks",
-  storageBucket: "classroom-yks.appspot.com",
-  messagingSenderId: "708614260653",
-  appId: "1:708614260653:web:0bbad2353fb4d626c08324",
-  measurementId: "G-D1GYGMVZ9M"
 };
 
 // Initialize Firebase
